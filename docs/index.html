@@ -2,176 +2,262 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name = "veiwport" content="'width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Seth McDaniel Personal Page</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-  }
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+      }
 
-  .contact {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 280px;
-    height: 100%;
-    background-color: #ffffff;
-    border-right: 3px solid #0077b5;
-    padding: 20px;
-    box-sizing: border-box;
-    z-index: 1000;
-  }
+      .contact {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 280px;
+        height: 100%;
+        background-color: #ffffff;
+        border-right: 3px solid #0077b5;
+        padding: 20px;
+        box-sizing: border-box;
+        z-index: 1000;
+      }
 
-  .main {
-    margin-left: 270px; 
-    padding: 40px 20px;
-    max-width: 100%;
-    max-height: 100%;
-    box-sizing: border-box;
-    background: rgb(212, 222, 253);
-  }
+      .main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 270px;
+        padding: 40px 20px;
+        max-width: 100%;
+        max-height: 100%;
+        box-sizing: border-box;
+        background: rgb(212, 222, 253);
+      }
 
-  h1 {
-    text-align: center;
-    font-size: 700%;
-  }
+      h1 {
+        text-align: center;
+        font-size: 400%;
+      }
 
-  .profile-pic {
-    display: block;
-    margin: 20px auto;
-    max-width: 30%;
-    width: auto;
-    max-height: 20%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 30%;
-    border: 2px solid #ccc;
-  }
+      .profile-pic {
+        display: block;
+        margin: 20px auto;
+        max-width: 30%;
+        width: auto;
+        max-height: 20%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 30%;
+        border: 2px solid #ccc;
+      }
 
-  .description {
-    margin-bottom: 30px;
-    background: #fff;
-    padding: 20px;
-    border-left: 5px solid #0077b5;
-    border-radius: 0%;
-    max-width: 30%;
-    
-  }
-  .description h2 {
-   margin-top: 0;
-  margin-bottom: 16px;
-  color: #0077b5;
-  font-size: 2em;
-  }
+      .description,
+      .experience,
+      .education {
+        margin-bottom: 30px;
+        background: #fff;
+        padding: 20px;
+        border-left: 5px solid #0077b5;
+        border-radius: 0%;
+        max-width: 500px;   /* Increased from 30% or 400px */
+        min-width: 350px;   /* Increased from 300px */
+        word-break: break-word;
+        overflow-wrap: break-word;
+        box-sizing: border-box;
+      }
 
-  .education {
-    background: #fff;
-    padding: 20px;
-    border-left: 5px solid #0077b5;
-    max-width: 30%;
-  }
+      .description {
+        margin-bottom: 30px;
+        background: #fff;
+        padding: 20px;
+        border-left: 5px solid #0077b5;
+        border-radius: 0%;
+        max-width: 30%;
+      }
 
-  .education h2 {
-   margin-top: 0;
-  margin-bottom: 16px;
-  color: #0077b5;
-  font-size: 2em;
-  }
+      .experience {
+        background: #fff;
+        padding: 20px;
+        border-left: 5px solid #0077b5;
+        margin-bottom: 20px;
+        max-width: 500px;   /* Increased from 30% or 400px */
+        min-width: 350px;   /* Increased from 300px */
+      }
 
-  .card-row {
-  display: flex;
-  gap: 32px;
-  justify-content: center;
-  align-items: flex-start;
-  margin-bottom: 40px;
-}
+      .description h2,
+      .experience h2,
+      .education h2 {
+        margin-top: 0;
+        margin-bottom: 16px;
+        color: #0077b5;
+        font-size: 2em;
+      }
 
-  .links {
-    text-align: center;
-    margin-bottom: 40px;
-  }
+      .experience ul {
+        margin: 0 0 0 20px;
+        padding: 0;
+      }
+      .experience li {
+        margin-bottom: 8px;
+        line-height: 1.5;
+      }
 
-  .links a {
-    display: inline-block;
-    margin: 0 10px;
-    padding: 10px 15px;
-    background-color: #0077b5;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-  }
+      .card-row {
+        display: flex;
+        gap: 64px; /* or whatever gap you like */
+        justify-content: center;
+        align-items: flex-start;
+        margin-bottom: 40px;
+      }
 
+      .description,
+      .right-column {
+        max-width: 400px;
+        min-width: 300px;
+        width: 100%;
+        box-sizing: border-box;
+      }
 
-  @media (max-width: 768px) {
-    .contact {
-      position: relative;
-      width: 100%;
-      height: auto;
-      border-right: none;
-      border-bottom: 3px solid #0077b5;
-    }
+      .right-column {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
 
-    .main {
-      max-width: 100%;
-      width: auto;
-      margin-left: 0;
-      margin-top: 20px;
-    }
-  }
-</style>
+      .links {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .links a {
+        display: inline-block;
+        margin: 0 10px;
+        padding: 10px 15px;
+        background-color: #0077b5;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+
+      .links a.download-btn {
+        background-color: #28a745;
+        margin-left: 10px;
+      }
+
+      @media (max-width: 900px) {
+        .card-row {
+          flex-direction: column;
+          gap: 32px;
+          align-items: center;
+        }
+        .description,
+        .experience,
+        .education {
+          max-width: 90vw;
+          width: 100%;
+          min-width: 0;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .contact {
+          position: relative;
+          width: 100%;
+          height: auto;
+          border-right: none;
+          border-bottom: 3px solid #0077b5;
+        }
+
+        .main {
+          max-width: 100%;
+          width: auto;
+          margin-left: 0;
+          margin-top: 20px;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div class="main">
-      <img src="images/CaliPic.jpg" alt="Your Name" class="profile-pic" />
-    <h1>Seth McDaniel</h1>
- <div class="card-row">
-    <div class="description">
-      <h2>About Me</h2>
-      <p>
-        I'm a junior pursuing a dual degree in Computer Engineering and
-        Mechanical Engineering, currently maintaining a 4.0 GPA.
-      </p>
-      <p>
-        I’m currently interning as a Software Developer, where I’ve gained
-        hands-on experience writing clean, efficient code and contributing to
-        real-world development projects.
-      </p>
-      <p>
-        While I enjoy software, I’m equally passionate about hardware, embedded
-        systems, and mechanical design. I'm actively exploring opportunities in
-        mechanical engineering, hardware design, embedded systems, and related
-        interdisciplinary fields.
-      </p>
-    </div>
-    <div class="education">
-      <h2>Education</h2>
-      <p>
-        <strong>Texas Tech University</strong> — B.S. in Computer Engineering,
-        B.S. in Mechanical Engineering
-      </p>
-      <p>Expected Graduation: May, 2027</p>
-      <p>
-        Relevant Coursework: Digital Systems Design, Embedded Systems, Control
-        Theory, Mechatronics
-      </p>
-    </div>
-    </div>
-
-    <div class="links">
-      <a href="https://www.linkedin.com/in/sethmcdaniel/" target="_blank"
-        >LinkedIn</a
-      >
-      <a href="resume.pdf" target="_blank">View Resume</a>
-    </div>
-
     <div class="contact">
       <h3>Contact</h3>
       <p><strong>Email:</strong> seth.mcdanie@gmail.com</p>
       <p><strong>Phone:</strong> (512)-571-0968</p>
     </div>
+    <div class="main">
+      <img src="images/SethHeadshot.jpg" alt="Your Name" class="profile-pic" />
+      <h1>Seth McDaniel</h1>
+      <div class="links">
+        <a href="https://www.linkedin.com/in/sethmcdaniel/" target="_blank"
+          >LinkedIn</a
+        >
+        <a href="SethMcDanielResume.pdf" target="_blank">View Resume</a>
+        <a href="SethMcDanielResume.pdf" download class="download-btn">Download Resume</a>
+      </div>
+      <div class="card-row">
+        <div class="description">
+          <h2>About Me</h2>
+          <p>
+            I’m an aspiring Computer and Mechanical Engineer who loves solving problems and finding
+            creative ways to make things work better — whether through code, design, or physical systems.
+          </p>
+          <p>
+            I’m originally from Austin, Texas, and I’m currently studying at Texas Tech University in Lubbock,
+            where I’m pursuing a dual major in Computer Engineering and Mechanical Engineering. I’ve maintained
+            a 4.0 GPA while staying actively involved in hands-on projects and internships that challenge both
+            my technical and creative thinking.
+          </p>
+          <p>
+            Previously, I have worked as a Software Development Intern, but my interests extend far beyond software.
+            I’m equally excited by mechanical systems, embedded devices, and hardware-focused engineering.
+            Whether it’s building efficient systems, optimizing designs, or writing the code that brings them to life —
+            I enjoy learning, collaborating, and building things that solve real problems.
+          </p>
+          <p>
+            I’m currently exploring intern and full-time opportunities across mechanical engineering,
+            hardware/computer engineering, and software engineering — and I'm especially drawn to roles that sit at
+            the intersection of those disciplines.
+          </p>
+        </div>
+        <div class="right-column">
+          <div class="experience">
+            <h2>Experience</h2>
+            <p>
+              <strong>Software Development Intern</strong><br>
+              Tyler Technologies, Summer 2025
+            </p>
+            <ul>
+              <li>
+                Improved team efficiency by implementing an automated issue detection dashboard,
+                which reduced deployment time by 40% and streamlined bi-weekly meetings for a team of 20+ members.
+              </li>
+              <li>
+                Developed real-time database health checks using AWS Lambda functions,
+                providing cost-effective and proactive monitoring of the codebase.
+              </li>
+              <li>
+                Collaborated with the product team to define specifications and plan project milestones,
+                ensuring clear communication and successful project delivery.
+              </li>
+            </ul>
+          </div>
+          <div class="education">
+            <h2>Education</h2>
+            <p>
+              <strong>Texas Tech University</strong> — B.S. in Computer Engineering,
+              B.S. in Mechanical Engineering
+            </p>
+            <p><strong>Expected Graduation</strong>: May, 2027</p>
+            <p>
+              <strong>Coursework</strong> : Modern Digital Systems Design, Embedded Systems, 
+              Fluid Mechanics, Systems and Vibrations, Signals and Systems,
+              Thermodynamics, Engineering Mechanics, and more.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
